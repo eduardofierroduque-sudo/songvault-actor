@@ -1,86 +1,86 @@
-# SongVault 🎵
+# SongVault
 
-## Suno Music Backup & Downloader
+## Suno Music Backup and Downloader
 
-Descarga **todas** tus canciones de Suno AI automaticamente. MP3 o WAV, con caratula, letras y metadatos. Ideal para respaldar tu libreria antes de limpiar tu cuenta.
+Descarga todas tus canciones de Suno AI automaticamente en MP3 o WAV, con caratula, letras y metadatos incluidos. Ideal para respaldar tu libreria completa antes de limpiar tu cuenta.
 
 ---
 
-## ✨ Que hace
+## Funciones
 
 | Funcion | Descripcion |
 |---------|-------------|
-| **Descarga masiva** | Todas tus canciones, sin limite |
-| **MP3 o WAV** | Elige formato estandar o alta calidad |
-| **Metadatos** | Caratula, titulo, artista, genero incrustados en el MP3 |
-| **Letras + Tags** | Archivo .txt por cancion con letra y estilo |
-| **Workspaces** | Organizado en carpetas por workspace |
-| **Limpieza opcional** | Elimina de Suno tras descargar |
-| **Reanudable** | Canciones ya descargadas se saltan |
+| Descarga masiva | Todas tus canciones sin limite |
+| Formato MP3 o WAV | Elige rapidez o maxima calidad |
+| Metadatos ID3 | Caratula, titulo, artista, genero incrustados en el MP3 |
+| Letra y estilo | Archivo .txt por cancion con letra y tags |
+| Organizacion | Separado por workspaces automaticamente |
+| Limpieza opcional | Elimina de Suno tras descargar |
+| Reanudable | Canciones ya descargadas se omiten |
 
-## 🚀 Como usar
+## Como usar
 
-### 1. Obtén tu token
+### 1. Obtener el token
 
-1. Ve a [suno.com](https://suno.com) y **logueate**
-2. Presiona **F12** → pestaña **Network** (Red)
-3. **F5** para recargar
-4. Filtra por `feed`
-5. Clic al request **POST** `v3`
-6. En **Request Headers** → `Authorization: Bearer ey...`
-7. **Copia** solo el string despues de `Bearer `
+1. Ingresa a suno.com y asegurate de estar logueado
+2. Presiona F12 y ve a la pestana Network (Red)
+3. Recarga la pagina con F5
+4. Escribe "feed" en el filtro de busqueda
+5. Selecciona el request POST llamado "v3"
+6. En Request Headers busca el campo Authorization con valor "Bearer ey..."
+7. Copia solo la parte despues de "Bearer " (el string que comienza con ey...)
 
-### 2. Configura el Actor
+### 2. Configurar el actor
 
 | Campo | Descripcion |
 |-------|-------------|
-| **Token** | Pega tu token de Suno |
-| **Formato** | MP3 (rapido) o WAV (calidad, mas lento) |
-| **Modo** | Todas, un workspace, o 5 de prueba |
-| **Incluir metadatos** | .txt con letras + .json con metadata |
-| **Eliminar tras descarga** | Opcional: envia a papelera de Suno |
+| Token | El token que copiaste de Suno |
+| Formato | MP3 (rapido, recomendado) o WAV (mayor calidad, conversion lenta) |
+| Modo | Todas las canciones, solo un workspace, o 5 de prueba |
+| Incluir metadatos | Guarda .txt con letras y .json con metadata completa |
+| Eliminar tras descarga | Envia las canciones a la papelera de Suno al terminar |
 
-### 3. Ejecuta y recibe tus archivos
+### 3. Ejecutar
 
-Los MP3/WAV apareceran en el **Key-Value Store** del Actor, organizados por workspace.
+Los archivos MP3 o WAV apareceran en el Key-Value Store del actor, organizados por workspace.
 
-## 📁 Estructura de salida
+## Estructura de salida
 
 ```
-SongVault_Store/
-├── My Workspace/
-│   ├── NombreCancion__abc12345.mp3
-│   ├── NombreCancion__abc12345.jpeg
-│   ├── NombreCancion__abc12345.txt
-│   └── NombreCancion__abc12345.json
-├── Otro Workspace/
-│   └── ...
-└── _library_all/
-    └── ...
+output/
+  My Workspace/
+    NombreCancion__abc12345.mp3
+    NombreCancion__abc12345.jpeg
+    NombreCancion__abc12345.txt
+    NombreCancion__abc12345.json
+  Otro Workspace/
+    ...
+  _library_all/
+    ...
 ```
 
-## 💰 Precios sugeridos (Apify Store)
+## Precios sugeridos
 
 | Plan | Precio | Limite |
 |------|--------|--------|
-| **Gratis** | $0 | 10 canciones de prueba |
-| **Basico** | $9.99/mes | 500 canciones/mes |
-| **Pro** | $19.99/mes | 5000 canciones/mes |
-| **Ilimitado** | $49.99/mes | Sin limite + WAV |
+| Gratis | $0 | 10 canciones de prueba |
+| Basico | $9.99/mes | 500 canciones/mes |
+| Pro | $19.99/mes | 5000 canciones/mes |
+| Ilimitado | $49.99/mes | Sin limite + formato WAV |
 
-## ⚠️ Notas
+## Notas importantes
 
-- El token expira cada ~6 horas. Si ves error 401, obten uno nuevo.
-- WAV tarda mas porque Suno debe convertir cada cancion.
-- Las canciones van a la **papelera** de Suno (no destruccion permanente).
-- No compartas tu token con nadie.
+- El token de Suno expira cada 6 horas aproximadamente. Si el actor reporta error 401, obten un token nuevo y vuelve a ejecutar.
+- El formato WAV requiere conversion por parte de Suno, lo que hace el proceso significativamente mas lento que MP3.
+- La opcion de eliminar canciones las envia a la papelera de Suno (no es destruccion permanente).
+- No compartas tu token con nadie. Da acceso completo a tu cuenta de Suno.
 
-## 🔧 Stack tecnico
+## Stack tecnologico
 
 - Python 3.12
 - Apify SDK
 - Suno API (studio-api.prod.suno.com)
-- mutagen (tags ID3)
+- mutagen para metadatos ID3
 
 ---
 

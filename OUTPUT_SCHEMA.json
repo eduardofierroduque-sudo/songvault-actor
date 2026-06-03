@@ -1,0 +1,39 @@
+{
+  "actorSpecification": 1,
+  "statistics": [
+    {
+      "name": "Total",
+      "fieldName": "total",
+      "unit": "canciones"
+    },
+    {
+      "name": "Descargadas",
+      "fieldName": "downloaded",
+      "unit": "canciones"
+    },
+    {
+      "name": "Fallos",
+      "fieldName": "failed",
+      "unit": "canciones"
+    }
+  ],
+  "views": {
+    "overview": {
+      "title": "Canciones",
+      "transformation": {
+        "fields": ["title", "status", "workspace", "id"],
+        "fieldsOrder": ["title", "status", "workspace", "id"],
+        "rename": {
+          "title": "Song",
+          "status": "Status",
+          "workspace": "Workspace",
+          "id": "ID"
+        }
+      },
+      "display": {
+        "header": true,
+        "table": true
+      }
+    }
+  }
+}

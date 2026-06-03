@@ -5,19 +5,6 @@
   "description": "Descarga todas tus canciones de Suno AI en MP3 o WAV con metadatos completos. Organiza por workspaces, respalda tu libreria completa, todo automaticamente.",
   "version": "1.0.0",
   "buildTag": "latest",
-  "environment": {
-    "NODE_PATH": "/usr/local/lib/python3.12/site-packages"
-  },
   "dockerfile": "../Dockerfile",
-  "input": "../INPUT_SCHEMA.json",
-  "storages": {
-    "dataset": {
-      "title": "Canciones descargadas",
-      "description": "Lista de todas las canciones descargadas con sus metadatos"
-    },
-    "keyValueStore": {
-      "title": "Archivos MP3/WAV",
-      "description": "Archivos de audio descargados"
-    }
-  }
+  "input": "../INPUT_SCHEMA.json"
 }

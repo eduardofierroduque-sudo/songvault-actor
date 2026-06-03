@@ -1,0 +1,53 @@
+{
+  "title": "SongVault - Configuracion",
+  "type": "object",
+  "schemaVersion": 1,
+  "required": ["sunoToken"],
+  "properties": {
+    "sunoToken": {
+      "title": "Token de Suno",
+      "type": "string",
+      "description": "Tu Bearer token de Suno. Obtenlo en suno.com > F12 > Network > filtrar 'feed' > copiar el token del header Authorization (sin 'Bearer ')",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "format": {
+      "title": "Formato de audio",
+      "type": "string",
+      "description": "MP3 (rapido) o WAV (mayor calidad, conversion mas lenta)",
+      "editor": "select",
+      "default": "mp3",
+      "enum": ["mp3", "wav"],
+      "enumTitles": ["MP3 - Rapido y compatible", "WAV - Alta calidad"]
+    },
+    "mode": {
+      "title": "Modo de descarga",
+      "type": "string",
+      "description": "Que canciones descargar",
+      "editor": "select",
+      "default": "all",
+      "enum": ["all", "workspace", "debug"],
+      "enumTitles": ["Todas las canciones", "Solo un workspace especifico", "Solo 5 canciones (prueba)"]
+    },
+    "workspaceName": {
+      "title": "Nombre del workspace (solo modo workspace)",
+      "type": "string",
+      "description": "Si elegiste 'Solo un workspace', escribe el nombre exacto aqui",
+      "editor": "textfield"
+    },
+    "includeMetadata": {
+      "title": "Incluir metadatos",
+      "type": "boolean",
+      "description": "Guarda .txt (letra + tags) y .json (metadata completa) por cada cancion",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "deleteAfterDownload": {
+      "title": "Eliminar de Suno tras descargar",
+      "type": "boolean",
+      "description": "Opcional: envia a la papelera de Suno las canciones ya descargadas (para limpiar tu cuenta)",
+      "default": false,
+      "editor": "checkbox"
+    }
+  }
+}
